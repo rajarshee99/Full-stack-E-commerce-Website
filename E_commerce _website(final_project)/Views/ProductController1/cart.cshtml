@@ -1,0 +1,57 @@
+﻿@model IEnumerable<E_commerce__website_final_project_.Models.product>
+
+@{
+    ViewData["Title"] = "cart";
+}
+
+<h1>cart</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.p_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_pic)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_pic)
+            </td>
+              <td>
+                    <a asp-action="deletecart" asp-controller="ProductController1"asp-route-id="@item.p_id">remove</a> |
+                @* <a asp-action="Details" asp-route-id="@item.p_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.p_id">Delete</a> *@
+            </td> 
+        </tr>
+        <h1>
+            
+                @ViewBag.totalamount
+        </h1>
+}
+    </tbody>
+</table>

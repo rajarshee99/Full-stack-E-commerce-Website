@@ -1,0 +1,48 @@
+﻿@model E_commerce__website_final_project_.Models.product
+
+@{
+    ViewData["Title"] = "create";
+}
+
+<h1>create</h1>
+
+<h4>product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="p_name" class="control-label"></label>
+                <input asp-for="p_name" class="form-control" />
+                <span asp-validation-for="p_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="p_qty" class="control-label"></label>
+                <input asp-for="p_qty" class="form-control" />
+                <span asp-validation-for="p_qty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="p_price" class="control-label"></label>
+                <input asp-for="p_price" class="form-control" />
+                <span asp-validation-for="p_price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="p_pic" class="control-label"></label>
+                <input asp-for="p_pic" class="form-control" />
+                <span asp-validation-for="p_pic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<E_commerce__website_final_project_.Models.product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<p>
+    <a asp-action="logout">logout</a>
+</p>
+<table class="table  table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.p_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_pic)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_pic)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.p_id" button class="btn-success">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.p_id" button class="btn-danger">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.p_id" button class="btn-info">Delete</a>
+               @*  <a asp-action="Edit" asp-route-id="@item.p_id" button class="btn-success">add_to_cart</a> |
+                <a asp-action="Edit" asp-route-id="@item.p_id" button class="btn-success">buy now</a> | *@
+                
+
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
